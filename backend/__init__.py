@@ -8,7 +8,11 @@ from flask import Flask, send_from_directory
 import random
 import os
 
+from backend.endpoints import frontend_handler
+
 app = Flask(__name__)
+
+app.register_blueprint(frontend_handler.bp)
 
 @app.route("/rand")
 def hello():

@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
-from .connection import db
+from backend.database.connection import db
 
 class Document(db.Model):
     __tablename__ = "documents"
