@@ -34,19 +34,27 @@ class YamlConfig:
 
         for k, v in attributes:
             value = base.get(k)
+            
+            # TODO: Refactor to use regex
             if str(value).startswith("${") and str(value).endswith("}"):
-                value = os.getenv(value[1:])
+                value = os.getenv(value[2:-1])
 
             if value is None: 
                 raise ValueError(f"The variable of {k} does not exist in config")
 
-            setattr(self, k, value)
+            setattr(self.__class__, k, value)
 
 class Database(YamlConfig):
     hostname: str = ""
-    port: str= ""
+    port: str = ""
     username: str = ""
     password: str = ""
 
-a = Database()
-print(a.password)
+class DocumentHandler(YamlConfig):
+    unconverted_types: str = ""
+    converted_types: str = ""
+    upload_foler: str = ""
+    stateful: str = ""
+
+Database()
+DocumentHandler()
