@@ -5,7 +5,7 @@ database:
     username: "${POSTGRES_USERNAME}"
     password: "${POSTGRES_PASSWORD}"
 
-document_handler:
+documenthandler:
     unconverted_types:
         - "pdf"
         - "txt"
@@ -14,10 +14,9 @@ document_handler:
         - "docx"
         - "doc"
     upload_foler: "./upload"
-    
     stateful: True
 
-vector_search:
+vectorsearch:
     chunk_size: 1000
     max_query_len: 256
     model_path: "xdddddd"
