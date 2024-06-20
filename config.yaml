@@ -1,0 +1,26 @@
+database:
+    hostname: "127.0.0"
+    port: 8080
+    
+    username: "${POSTGRES_USERNAME}"
+    password: "${POSTGRES_PASSWORD}"
+
+document_handler:
+    unconverted_types:
+        - "pdf"
+        - "txt"
+        - "svg"
+    converted_types:
+        - "docx"
+        - "doc"
+    upload_foler: "./upload"
+    
+    stateful: True
+
+vector_search:
+    chunk_size: 1000
+    max_query_len: 256
+    model_path: "xdddddd"
+
+server:
+    frontend_entrypoint: "frontend/public"
