@@ -1,9 +1,12 @@
+general:
+    config_mode: "${CONFIG_MODE}"
+
 database:
-    hostname: "127.0.0"
-    port: 8080
-    
+    hostname: "localhost"
+    port: 5402
     username: "${POSTGRES_USERNAME}"
     password: "${POSTGRES_PASSWORD}"
+    database: "jarwoLookup"
 
 documenthandler:
     unconverted_types:
@@ -13,7 +16,9 @@ documenthandler:
     converted_types:
         - "docx"
         - "doc"
-    upload_foler: "./upload"
+    upload_folder: "./files/upload"
+    extract_folder: "./files/extract"
+    tesseract_binary: "./backend/binaries/tesseract_bin/tesseract.exe"
     stateful: True
 
 vectorsearch:
@@ -22,4 +27,4 @@ vectorsearch:
     model_path: "xdddddd"
 
 server:
-    frontend_entrypoint: "frontend/public"
+    frontend_entrypoint: "frontend/dist"
