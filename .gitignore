@@ -2,3 +2,7 @@
 .vscode
 backend/binaries/*
 files
+
+__pycache__/
+*.py[cod]
+*.config.*
