@@ -1,9 +1,14 @@
-from sqlalchemy.ext.declarative import declarative_base
+import types
+
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy.orm import sessionmaker
+from flask_migrate import Migrate
 
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
+import backend.constants as constants
 
-Base = declarative_base()
-db = SQLAlchemy(model_class=Base)
+def get_connection_url(database_config: constants.Database):
+    
+    return (f"postgresql+psycopg2://{database_config.username}:{database_config.password}" +
+            f"@{database_config.hostname}:{database_config.port}/{database_config.database}")
+
+db = SQLAlchemy()
+migrate = Migrate()
