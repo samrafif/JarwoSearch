@@ -44,17 +44,36 @@ class YamlConfig:
 
             setattr(self.__class__, k, value)
 
+class General(YamlConfig):
+    config_mode: str = ""
+
 class Database(YamlConfig):
     hostname: str = ""
     port: str = ""
     username: str = ""
     password: str = ""
+    database: str = ""
 
 class DocumentHandler(YamlConfig):
     unconverted_types: str = ""
     converted_types: str = ""
-    upload_foler: str = ""
+    upload_folder: str = ""
+    extract_folder: str = ""
+    tesseract_binary: str = ""
     stateful: str = ""
 
+class VectorSearch(YamlConfig):
+    chunk_size: str = ""
+    max_query_len: str = ""
+    model_path: str = ""
+
+class Server(YamlConfig):
+    frontend_entrypoint: str = ""
+
+General()
 Database()
 DocumentHandler()
+VectorSearch()
+Server()
+
+root_dir = os.getcwd()
